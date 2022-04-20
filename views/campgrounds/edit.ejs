@@ -1,0 +1,107 @@
+<% layout('layouts/boilerplate.ejs') -%>
+
+<div class="row g-0">
+  <div class="col-md-3"></div>
+  <div class="col-md-6">
+    <div class="card" style="max-width: 700px">
+      <div class="card-header mb-4">
+        <h1 class="fs-3 p-0 m-auto">Edit Campground</h1>
+      </div>
+      <form
+        action="/campgrounds/<%=foundCampground._id%>?_method=PUT"
+        method="post"
+        novalidate
+        class="bootstrapValidator"
+        enctype="multipart/form-data"
+      >
+        <div class="mb-3 px-5">
+          <label class="form-label" for="title">Title:</label>
+          <input
+            class="form-control"
+            type="text"
+            placeholder="ex: Shadow Creeks"
+            id="title"
+            name="campground[title]"
+            value="<%=foundCampground.title%>"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please enter Title</div>
+        </div>
+        <div class="mb-3 px-5">
+          <label for="formFileMultiple" class="form-label"
+            >Add campground photos:</label
+          >
+          <input
+            class="form-control"
+            name="image"
+            type="file"
+            id="formFileMultiple"
+            multiple
+          />
+        </div>
+        <label class="px-5 form-label" for="price">Price per night: </label>
+        <div class="input-group mb-3 px-5">
+          <span class="input-group-text">$</span>
+          <input
+            class="form-control"
+            type="number"
+            name="campground[price]"
+            id="price"
+            placeholder="ex: 25"
+            value="<%=foundCampground.price%>"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please enter Price</div>
+        </div>
+        <div class="mb-3 px-5">
+          <label class="form-label" for="description"
+            >Describe the CampGround</label
+          >
+          <textarea
+            class="form-control"
+            name="campground[description]"
+            id="description"
+            cols="40"
+            rows="4"
+            placeholder="ex: Great camping ground for Families, has Hammocks, etc"
+          >
+ required<%=foundCampground.description%></textarea
+          >
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please enter Description</div>
+        </div>
+        <div class="mb-3 px-5">
+          <label class="form-label" for="location">Enter Location</label>
+          <input
+            class="form-control"
+            type="text"
+            id="location"
+            name="campground[location]"
+            placeholder="ex: Los Angelos, California"
+            value="<%=foundCampground.location%>"
+            required
+          />
+          <div class="valid-feedback">Looks good!</div>
+          <div class="invalid-feedback">Please enter Valid Location</div>
+        </div>
+        <div class="mb-3 px-5">
+          <% foundCampground.images.forEach(function(img, i) { %>
+            <div class="form-check-inline">
+            <img src="<%=img.thumbnail%>" alt="" class="img-thumbnail">
+              <input type="checkbox" name="deleteImages[]" id="image-<%=i%>" value="<%=img.path%>">
+              <label for="image-<%=i%>">Delete</label>
+            </div>
+         <% })%>
+        </div>
+        <div class="mb-4 mx-4 px-5">
+          <button class="btn btn-primary" type="submit">
+            Update Campground
+          </button>
+        </div>
+      </form>
+    </div>
+  </div>
+  <div class="col-md-3"></div>
+</div>

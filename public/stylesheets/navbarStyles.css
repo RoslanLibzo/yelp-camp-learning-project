@@ -1,0 +1,58 @@
+button#signIn {
+    background-color: rgb(238, 155, 0);
+    border-color:rgb(238, 155, 0);
+}
+
+button#signIn:hover {
+    background-color:hsl(39, 100%, 43%);
+}
+
+
+
+body{
+   background-color: rgb(243, 242, 239);
+}
+
+.greenyblue {
+    background-color: rgb(148, 210, 189);
+}
+
+.greenyblue:hover{
+    background-color: hsl(160, 41%, 67%)
+}
+
+.drkGreenyBlue {
+    background-color:rgb(112, 159, 143);
+}
+
+.drkGreenyBlueBorder {
+    border-color:rgb(112, 159, 143);
+    border-width: 2px;
+}
+
+.dltRed{
+    background-color: hsl(5, 81%, 43%);
+    color: white; 
+}
+
+.dltRed:hover{
+    background-color: hsl(5, 81%, 38%);
+    color: rgba(255,255,255, 0.9);
+}
+img.maxImg {
+    min-height: 100%;
+}
+
+.orangeBtn {
+    background-color: rgb(238, 155, 0);
+    border-color:rgb(238, 155, 0);
+}
+
+.orangeBtn:hover{
+    background-color:hsl(39, 100%, 40%);
+}
+#orangeFlash{
+    background-color: hsla(39, 100%, 80%, 1);
+    color: hsla(39, 100%, 30%, 1);
+    border-color: hsl(39, 100%, 70%);
+}

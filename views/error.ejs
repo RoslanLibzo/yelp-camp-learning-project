@@ -1,0 +1,11 @@
+<% layout('layouts/boilerplate.ejs') -%>
+<div class="container">
+<div class="row">
+    <div class="col-md-6 offset-md-3 bg-danger" offset="3">
+<h3 class="text-light">Error <%= err.message%> <br>StatusCode(<%=statusCode%>) </h3>
+    <% if(process.env.NODE_ENV === "production"){ %>
+    <p><%= err.stack %></p>
+    <% } %>
+    </div>
+</div>
+</div>

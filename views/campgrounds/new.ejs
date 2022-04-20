@@ -1,0 +1,68 @@
+<% layout('layouts/boilerplate.ejs') -%>
+
+<div class="row g-0">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+<div class="card" style="max-width: 700px">
+    <div class="card-header mb-4">
+        <h1 class="fs-3 p-0 m-auto">New Campground</h1>
+    </div>
+    <form action="/campgrounds" method="post" novalidate class="bootstrapValidator" enctype="multipart/form-data">
+        <div class="mb-3 px-5">
+        <label class="form-label" for="title">Title:</label>
+        <input class="form-control" type="text" placeholder='ex: Shadow Creeks' id='title' name="campground[title]" required >
+        <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+      Please enter Title
+    </div>
+  </div>
+    <!-- FORM FOR IMAGES -->
+    <div class="mb-3 px-5">
+      <label for="image" class="form-label">Upload your campground Images</label>
+      <input class="form-control" type="file" id="image" name="image" multiple required>
+  <div class="valid-feedback">
+    Looks good!
+  </div>
+  <div class="invalid-feedback">
+      Please Upload Image
+    </div>
+</div>
+      <label class="px-5 form-label" for="price">Price per night: </label>
+    <div class="input-group mb-3 px-5">
+        <span class="input-group-text">$</span>
+        <input class="form-control" type="number" name="campground[price]" id="price" placeholder="ex: 25" required >
+        <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+        Please enter Price
+      </div>
+    </div><div class="mb-3 px-5">
+        <label class="form-label" for="description">Describe the CampGround</label>
+        <textarea class="form-control" name="campground[description]" id="description" cols="40" rows="4"  required placeholder="ex: Great camping ground for Families, has Hammocks, etc"></textarea>
+        <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+        Please enter Description
+      </div>
+    </div><div class="mb-3 px-5">
+        <label class="form-label" for="location">Enter Location</label>
+        <input class="form-control" type="text" id="location" name="campground[location]" placeholder="ex: Los Angelos, California" required >
+        <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+        Please enter Location
+      </div>
+    </div>
+    <div class="d-grid gap-2 col-6 mx-auto mb-3 mt-5">
+        <button class="btn greenyblue block" type="submit">Create new Campground</button>
+    </div>
+    </form>
+</div>    
+</div>
+<div class="col-md-3"></div>
+</div>

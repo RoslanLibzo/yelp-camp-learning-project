@@ -1,0 +1,47 @@
+<% layout('layouts/boilerplate.ejs') -%>
+<div class="row g-0">
+    <div class="col-md-3"></div>
+    <div class="col-md-6">
+<div class="card" style="max-width: 700px">
+    <div class="card-header mb-4">
+        <h1 class="fs-3 p-0 m-auto">Register</h1>
+    </div>
+    <form action="/register" method="post" novalidate class="bootstrapValidator">
+        <div class="mb-3 px-5">
+        <label class="form-label" for="username">Username:</label>
+        <input class="form-control" type="text" placeholder='YourUsername' id='username' name="username" required >
+        <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+        Please enter username
+      </div>
+    </div>
+      <label class="px-5 form-label" for="email">Email: </label>
+    <div class="mb-3 px-5">
+        <input class="form-control" type="email" name="email" id="email" placeholder="validemail@gmail.com" required >
+        <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+        Please enter a valid email
+      </div>
+ 
+    </div><div class="mb-3 px-5">
+        <label class="form-label" for="password">Password</label>
+        <input class="form-control" type="password" id="password" name="password" placeholder="p!sl$%!132LaKk" required >
+        <div class="valid-feedback">
+      Looks good!
+    </div>
+    <div class="invalid-feedback">
+        Please enter a valid password!
+      </div>
+    </div>
+    <div class="mb-4 mx-4 px-5 mt-4">   
+        <button class="btn btn-success" type="submit">Create account</button>
+    </div>
+    </form>
+</div>    
+</div>
+<div class="col-md-3"></div>
+</div>
