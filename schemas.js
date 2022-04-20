@@ -27,7 +27,7 @@ const Joi = BaseJoi.extend(extension)
     campground: Joi.object({
     title: Joi.string().required().min(6).max(90).escapeHTML(),
     price: Joi.number().required().min(0).max(999),
-    description: Joi.string().required().escapeHTML().max(150).min(15),
+    description: Joi.string().required().escapeHTML().max(2000).min(15),
     location: Joi.string().required().min(3).max(80).escapeHTML(),
     // image: Joi.string()
     }).required(),
