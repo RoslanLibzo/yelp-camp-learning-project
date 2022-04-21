@@ -29,6 +29,7 @@ const Joi = BaseJoi.extend(extension)
     price: Joi.number().required().min(0).max(999),
     description: Joi.string().required().escapeHTML().max(2000).min(15),
     location: Joi.string().required().min(3).max(80).escapeHTML(),
+    boosted: Joi.boolean()
     // image: Joi.string()
     }).required(),
     deleteImages: Joi.array()

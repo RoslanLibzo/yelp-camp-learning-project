@@ -86,7 +86,31 @@
           <div class="valid-feedback">Looks good!</div>
           <div class="invalid-feedback">Please enter Valid Location</div>
         </div>
+        <!-- Chebox here -->
         <div class="mb-3 px-5">
+          <% if(foundCampground.boosted){ %>
+            <input
+            class="form-check-input"
+            type="checkbox"
+            id="boosted"
+            name="campground[boosted]"
+            value="true"
+            checked="true"
+            />
+            <%} else {%>
+              <input
+              class="form-check-input"
+              type="checkbox"
+              id="boosted"
+              name="campground[boosted]"
+              value="true"
+              />
+              <%}%>
+              <label class="form-check-label" for="boosted">Pay $10 Per month to boost your Campground</label>
+
+        </div>
+        <div class="mb-3 px-5">
+          <label for="" class="form-label"> Select Photos to Remove</label>
           <% foundCampground.images.forEach(function(img, i) { %>
             <div class="form-check-inline">
             <img src="<%=img.thumbnail%>" alt="" class="img-thumbnail">

@@ -33,6 +33,7 @@ module.exports.renderEditCampground = async (req, res, next) => {
 };
 
 module.exports.createCampground = async (req, res, next) => {
+  console.log(req.body)
   const geoData = await geocoder.forwardGeocode({
     query: req.body.campground.location,
     limit: 1
@@ -51,6 +52,7 @@ console.log(geoData.body.features[0].geometry)
 };
 
 module.exports.validateCampground = (req, res, next) => {
+  console.log(req.body)
   const { error } = campgroundSchema.validate(req.body);
   if (error) {
     const msg = error.details.map((el) => el.message).join(",");
@@ -65,8 +67,10 @@ module.exports.updateCampground = async (req, res, next) => {
   const campground = await CampGround.findByIdAndUpdate(id, {...req.body.campground})
   const addedImages = req.files.map(f=>({url: f.path, path: f.filename}))
   campground.images.push(...addedImages)
+  if(!req.body.campground.boosted){
+    campground.boosted = false
+  }
   await campground.save()
-  console.log(campground)
   if(req.body.deleteImages){
     for(let filename of req.body.deleteImages){
       await cloudinary.uploader.destroy(filename);
