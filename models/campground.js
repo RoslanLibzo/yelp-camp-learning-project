@@ -1,17 +1,25 @@
 const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 const Review = require('./review');
-const User = require('./user')
+const User = require('./user');
 const opts = { toJSON: { virtuals: true}};
 
 const imageSchema = new Schema({
     url: String,
     path: String,
-})
+});
 
 imageSchema.virtual('thumbnail').get(function(){
     return this.url.replace('/upload', '/upload/w_150');
-})
+});
+
+imageSchema.virtual('indexImg').get(function(){
+    return this.url.replace('/upload', '/upload/c_fill,w_320,h_210')
+});
+
+imageSchema.virtual('showImg').get(function(){
+    return this.url.replace('/upload', '/upload/c_fill,w_1280,h_720')
+});
 
 const CampGroundSchema = new Schema({
     title: String,
@@ -37,13 +45,13 @@ const CampGroundSchema = new Schema({
 
 CampGroundSchema.virtual('properties.popUpMarker').get(function(){
     return `<a href="/campgrounds/${this._id}">${this.title}</a>`
-})
+});
 CampGroundSchema.virtual('properties.description').get(function(){
     return `${this.description.substring(0,45)}...`
-})
+});
 CampGroundSchema.virtual('properties.price').get(function(){
     return `${this.price}`
-})
+});
 
 CampGroundSchema.post('findOneAndDelete', async function(doc){
     if(doc){
@@ -53,6 +61,6 @@ CampGroundSchema.post('findOneAndDelete', async function(doc){
             }
         })
     }
-})
+});
 
 module.exports = mongoose.model('CampGround', CampGroundSchema);

@@ -110,8 +110,9 @@
               <label class="form-check-label" for="boosted">Pay $10 Per month to boost your Campground</label>
 
         </div>
-        <div class="mb-3 px-5">
-          <label for="" class="form-label"> Select Photos to Remove</label>
+        <div class="mb-5 px-5">
+          <label for="" class="form-label"> Select Photos to Remove</label><br>
+
           <% foundCampground.images.forEach(function(img, i) { %>
             <div class="form-check-inline">
             <img src="<%=img.thumbnail%>" alt="" class="img-thumbnail">
@@ -120,11 +121,9 @@
             </div>
          <% })%>
         </div>
-        <div class="mb-4 mx-4 px-5">
-          <button class="btn btn-primary" type="submit">
-            Update Campground
-          </button>
-        </div>
+        <div class="d-grid gap-2 col-6 mx-auto mb-4 mt-5">
+          <button class="btn greenyblue block" type="submit">Update Campground</button>
+      </div>
       </form>
     </div>
   </div>
